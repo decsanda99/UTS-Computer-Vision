@@ -1,4 +1,7 @@
 # UTS-Computer-Vision
+Nama : Decsanda Arga Gilang Ramdhani
+NIM : 43050230016
+
 🦾 OpenCV Character Transformation and Bitwise Operations
 
 Proyek ini menampilkan cara membuat dan memanipulasi karakter robot sederhana menggunakan OpenCV dan NumPy.
