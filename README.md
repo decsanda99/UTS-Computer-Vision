@@ -59,7 +59,7 @@ Hasil
 ![Final](output/karakter.jpg)
 ![Final](output/rotate.jpg)
 ![Final](output/resize.jpg)
-![Final](output/translate.jpg)
+![Final](output/translasi.jpg)
 ![Final](output/crop.jpg)
 ![Final](output/bitwise.jpg)
 ![Final](output/final.jpg)
