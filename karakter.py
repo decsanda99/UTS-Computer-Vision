@@ -56,7 +56,7 @@ def buat_karakter():
     cv2.line(kanvas, (275, 190), (325, 250), WARNA_MERAH, 20)
 
     # Simpan hasil
-    path_karakter = os.path.join(OUTPUT_DIR, "karakter.png")
+    path_karakter = os.path.join(OUTPUT_DIR, "karakter.jpg")
     cv2.imwrite(path_karakter, kanvas)
     print(f"Gambar karakter disimpan di: {path_karakter}")
 
@@ -71,25 +71,25 @@ def terapkan_transformasi(img):
     # Translasi
     M_translate = np.float32([[1, 0, 50], [0, 1, 30]])
     translasi = cv2.warpAffine(img, M_translate, (w, h), borderValue=WARNA_PUTIH)
-    cv2.imwrite(os.path.join(OUTPUT_DIR, "translasi.png"), translasi)
-    print("Hasil translasi disimpan di: output/translasi.png")
+    cv2.imwrite(os.path.join(OUTPUT_DIR, "translasi.jpg"), translasi)
+    print("Hasil translasi disimpan di: output/translasi.jpg")
 
     # Rotasi
     pusat = (w // 2, h // 2)
     M_rotate = cv2.getRotationMatrix2D(pusat, 45, 1.0)
     rotasi = cv2.warpAffine(img, M_rotate, (w, h), borderValue=WARNA_PUTIH)
-    cv2.imwrite(os.path.join(OUTPUT_DIR, "rotate.png"), rotasi)
-    print("Hasil rotasi disimpan di: output/rotate.png")
+    cv2.imwrite(os.path.join(OUTPUT_DIR, "rotate.jpg"), rotasi)
+    print("Hasil rotasi disimpan di: output/rotate.jpg")
 
     # Resize
     resize = cv2.resize(img, (w // 2, h // 2), interpolation=cv2.INTER_AREA)
-    cv2.imwrite(os.path.join(OUTPUT_DIR, "resize.png"), resize)
-    print("Hasil resize disimpan di: output/resize.png")
+    cv2.imwrite(os.path.join(OUTPUT_DIR, "resize.jpg"), resize)
+    print("Hasil resize disimpan di: output/resize.jpg")
 
     # Crop
     crop = img[50:220, 125:275]
-    cv2.imwrite(os.path.join(OUTPUT_DIR, "crop.png"), crop)
-    print("Hasil crop disimpan di: output/crop.png")
+    cv2.imwrite(os.path.join(OUTPUT_DIR, "crop.jpg"), crop)
+    print("Hasil crop disimpan di: output/crop.jpg")
 
 def terapkan_operasi(img_karakter):
     """
@@ -107,7 +107,7 @@ def terapkan_operasi(img_karakter):
     # Buat mask
     img_gray = cv2.cvtColor(img_karakter, cv2.COLOR_BGR2GRAY)
     _, mask = cv2.threshold(img_gray, 254, 255, cv2.THRESH_BINARY_INV)
-    path_mask = os.path.join(OUTPUT_DIR, "bitwise.png")
+    path_mask = os.path.join(OUTPUT_DIR, "bitwise.jpg")
     cv2.imwrite(path_mask, mask)
     print(f"Hasil mask disimpan di: {path_mask}")
 
@@ -122,7 +122,7 @@ def terapkan_operasi(img_karakter):
 
     # Gabungkan
     final = cv2.add(bg_terlubangi, karakter_terisolasi)
-    path_final = os.path.join(OUTPUT_DIR, "final.png")
+    path_final = os.path.join(OUTPUT_DIR, "final.jpg")
     cv2.imwrite(path_final, final)
     print(f"Hasil akhir disimpan di: {path_final}")
 
@@ -135,4 +135,5 @@ def main():
 
 # ✅ Perbaikan utama di sini:
 if _name_ == "_main_":
+
     main()
